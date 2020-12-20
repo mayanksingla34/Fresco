@@ -1,0 +1,59 @@
+<%- include('partials/header'); -%>
+
+<% if(success && success.length >0){ %>
+    <div class="alert alert-success container" role="alert">
+        <%= success %>
+    </div>
+<% }%>
+<% if(error && error.length >0){ %>
+    <div class="alert alert-danger container" role="alert">
+        <%= error %>
+    </div>
+<% }%>
+
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h1>Contact Us</h1>
+            <p>Description</p>
+        </header>
+    </div>
+    <div class="container">
+        <form id="myForm" method="post" action="/contactus">
+            <div class="row uniform">
+                <div class="6u 12u$(small)">
+                    <label>Name</label>
+                    <input type="text" name="name" placeholder="Name" />
+                </div>
+                <div class="6u$ 12u$(small)">
+                    <label>E-mail</label>
+                    <input type="email" name="email" placeholder="Email" />
+                </div>
+                <div class="12u$">
+                    <label>Message</label>
+                    <textarea name="message" placeholder="Enter your message" rows="6"></textarea>
+                </div>
+                <div class="12u$ align-center">
+                    <ul class="actions fit">
+                        <li"><input id="sendmessage" type="submit" placeholder="Send Message" /></li>
+                        <li"><input type="reset" value="Reset" class="alt" /></li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3 class="modal-title" id="exampleModalLabel">Message Sent</h3>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="actions" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div> -->
+    </div>
+</section>
+
+<%- include('partials/footer'); -%>

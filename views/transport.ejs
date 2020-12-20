@@ -1,0 +1,32 @@
+<%- include('partials/header'); -%>
+
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h1>Transport</h1>
+            <p>Drivers Details</p>
+        </header>
+        <div class="row">
+            <% drivers.forEach(function(drivers){ %>
+                <div class="4u 12u$(medium)">
+                    <div class="flex-item box">
+						<div class="image fit">
+							<img src="<%= drivers.image%>" alt="" />
+						</div>
+						<div class="content">
+                            <h3><%= drivers.name%></h3>
+                            <ul class="alt">
+                                <li>Contact: <%= drivers.contact%></li>
+                                <li>Cart No: <%= drivers.cart%></li>
+                                <li>Languages: <%= drivers.language%></li>
+                            </ul>
+						</div>
+					</div>
+                    
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer'); -%>

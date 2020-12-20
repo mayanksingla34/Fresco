@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>FRESCO</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+
+<!-- Header -->
+    <header id="header">
+        <nav class="left">
+            <a href="#menu"><span>Menu</span></a>
+        </nav>
+        <a href="/admin" class="logo">fresco</a>
+        <nav class="right">
+            <% if(!currentUser){ %>
+                <a href="/adminlogin" class="button alt">Log in</a>
+            <% }else { %>
+                <a href="#" class="button alt"><%= currentUser.name %></a>
+                <a href="/logout" class="button alt">Logout</a>
+            <% } %>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="actions vertical">
+            <% if(!currentUser){ %>
+                <% }else { %>
+                    <li><a href="#" class="button small"><%= currentUser.name %></a></li>
+                <% } %>
+        </ul>
+        <ul class="links">
+            <li><a href="/admin">Home</a></li>
+            <li><a href="/adminorders">View Orders</a></li>
+            <li><a href="/adminitems">Items</a></li>
+            <li><a href="/adminmessages">Messages</a></li>
+            <li><a href="/adminpasswd">Change Password</a></li>
+				
+        </ul>
+        <ul class="actions vertical">
+            <% if(!currentUser){ %>
+                <li><a href="/adminlogin" class="button fit">Login</a></li>
+            <% }else { %>
+                <li><a href="/logout" class="button fit">Logout</a></li>
+            <% } %>
+        </ul>
+    </nav>
+
+<!-- Main content here -->
+<% if(error && error.length >0){ %>
+    <div class="alert alert-danger container" role="alert">
+        <%= error %>
+    </div>
+<% }%>
+<% if(success && success.length >0){ %>
+    <div class="alert alert-success container" role="alert">
+        <%= success %>
+    </div>
+<% }%>
+
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h1>Change Password</h1>
+        </header>
+    </div>
+    <div class="container">
+        <form method="post" action="/adminpasswd">
+            <div class="row uniform">
+                <div class="6u 12u$(small)">
+                    <label>Old Password</label>
+                    <input type="password" name="oldpassword" placeholder="Old Password" />
+                </div>
+                <div class="6u$ 12u$(small)">
+                    <label>New Password</label>
+                    <input type="password" name="newpassword" placeholder="New Password" />
+                </div>
+                <div class="container align-center">
+                    <ul class="actions">
+                        <li"><input type="submit" value="Update" /></li>
+                        <li"><input type="reset" value="Reset" class="alt" /></li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+
+<!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <h2>Get In Touch</h2>
+            <ul class="actions">
+                <li><span class="icon fa-phone"></span> +91 9876543210</li>
+                <li><span class="icon fa-envelope"></span> fresco@thapar.edu</li>
+                <li><span class="icon fa-map-marker"></span> Thapar Institute, Patiala 147001</li>
+            </ul>
+            <div">
+                <ul class="actions">
+                    <li><a href="/adminmessages" class="button">Messages</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; Tech Wizards
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    </body>
+</html>

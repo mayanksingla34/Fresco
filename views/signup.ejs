@@ -1,0 +1,45 @@
+<%- include('partials/header'); -%>
+
+<% if(error && error.length >0){ %>
+    <div class="alert alert-danger container" role="alert">
+        <%= error %>
+    </div>
+<% }%>
+
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h1>Signup</h1>
+        </header>
+    </div>
+    <div class="container">
+    <form method="post" action="/signup">
+        <div class="row uniform">
+            <div class="6u 12u$(small)">
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Name" />
+            </div>
+            <div class="6u$ 12u$(small)">
+                <label>Roll Number</label>
+                <input type="text" name="rollno" placeholder="Roll Number" />
+            </div>
+            <div class="6u 12u$(small)">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Username / E-mail" />
+            </div>
+            <div class="6u$ 12u$(small)">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Password" />
+            </div>
+            <div class="container align-center">
+                <ul class="actions">
+                    <li"><input type="submit" value="Signup" /></li>
+                    <li"><input type="reset" value="Reset" class="alt" /></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+    </div>
+</section>
+
+<%- include('partials/footer'); -%>

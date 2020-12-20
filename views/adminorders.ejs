@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>FRESCO</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+
+<!-- Header -->
+    <header id="header">
+        <nav class="left">
+            <a href="#menu"><span>Menu</span></a>
+        </nav>
+        <a href="/admin" class="logo">fresco</a>
+        <nav class="right">
+            <% if(!currentUser){ %>
+                <a href="/adminlogin" class="button alt">Log in</a>
+            <% }else { %>
+                <a href="#" class="button alt"><%= currentUser.name %></a>
+                <a href="/adminlogout" class="button alt">Logout</a>
+            <% } %>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="actions vertical">
+            <% if(!currentUser){ %>
+                <% }else { %>
+                    <li><a href="#" class="button small"><%= currentUser.name %></a></li>
+                <% } %>
+        </ul>
+        <ul class="links">
+            <li><a href="/admin">Home</a></li>
+            <li><a href="/adminorders">View Orders</a></li>
+            <li><a href="/adminitems">Items</a></li>
+            <li><a href="/adminmessages">Messages</a></li>
+            <li><a href="/adminpasswd">Change Password</a></li>
+				
+        </ul>
+        <ul class="actions vertical">
+            <% if(!currentUser){ %>
+                <li><a href="/adminlogin" class="button fit">Login</a></li>
+            <% }else { %>
+                <li><a href="/adminlogout" class="button fit">Logout</a></li>
+            <% } %>
+        </ul>
+    </nav>
+
+<!-- Main content here -->
+
+<% if(error && error.length >0){ %>
+    <div class="alert alert-danger container" role="alert">
+        <%= error %>
+    </div>
+<% }%>
+
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h1>Orders</h1>
+            <p>All Orders</p>
+        </header>
+    </div>
+    <div class="container">
+        <div class="table-wrapper">
+            <table class="alt">
+                <thead>
+                    <%var x; x=orders; if(x.length == 0){ %>
+                    <% }else { %>
+                    <tr>
+                        <th class="align-center">S.No</th>
+                        <th class="align-center">Order ID</th>
+                        <th class="align-center">Item Name</th>
+                        <th class="align-center">User Name</th>
+                        <th class="align-center">Type</th>
+                        <th class="align-center">Status</th>
+                        <th class="align-center">Order Date</th>
+                        <th class="align-center">Expiry Date</th>
+                        <th class="align-center">Action</th>
+                    </tr>
+                    <% } %>
+                </thead>
+                <tbody>
+                    <%var x; x=orders; if(x.length == 0){ %>
+                    <tr>
+                        <td class="align-center" colspan="9">No Items</td>
+                    </tr>
+                    <%}; %>
+                    <%for (var i = x.length - 1; i >= 0; i--) { var status = x[i].status;%>
+                    <tr>
+                            <td><%= x.length-i %></td>
+                            <td class="align-center"><%= x[i].id %></td>
+                            <td class="align-center"><%= x[i].name %></td>
+                            <td class="align-center"><%= x[i].user[0].name %></td>
+                            <td class="align-center"><%= x[i].type %></td>
+                            <td class="align-center"><%= x[i].status %></td>
+                            <td class="align-center"><%= x[i].date %></td>
+                            <td class="align-center"><%= x[i].expdate %></td>
+                            <% if(status == "Active"){ %>
+                                <td class="align-center"><a href="/adminsubmit/<%= x[i]._id %>" class="button">Submit</a></td>
+                            <% }else { %>
+                                <td class="align-center"><a href="#" class="button disabled"><%= x[i].status %></a></td>
+                            <% } %>
+                    </tr>
+                    <%}; %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <h2>Get In Touch</h2>
+            <ul class="actions">
+                <li><span class="icon fa-phone"></span> +91 9876543210</li>
+                <li><span class="icon fa-envelope"></span> fresco@thapar.edu</li>
+                <li><span class="icon fa-map-marker"></span> Thapar Institute, Patiala 147001</li>
+            </ul>
+            <div">
+                <ul class="actions">
+                    <li><a href="/adminmessages" class="button">Messages</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; Tech Wizards
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    </body>
+</html>

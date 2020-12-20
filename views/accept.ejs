@@ -1,0 +1,46 @@
+<%- include('partials/header'); -%>
+
+<% if(error && error.length >0){ %>
+    <div class="alert alert-danger container" role="alert">
+        <%= error %>
+    </div>
+<% }%>
+
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h1>Accept</h1>
+            <p>Select your item</p>
+        </header>
+    </div>
+    <div class="container">
+        <% categories.forEach(function(categories){ %>
+        <h3><%= categories.name%></h3>
+        <div class="table-wrapper">
+            <table class="alt">
+                <thead>
+                    <tr>
+                        <th class="align-center">S.No</th>
+                        <th class="align-center">Item Name</th>
+                        <th class="align-center">Stock</th>
+                        <th class="align-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% var i=1; var x; a=categories.items; %>
+                    <% for (x of a) { %>
+                    <tr>
+                            <td><%= i %></td>
+                            <td class="8u"><%= x.name %></td>
+                            <td class="align-center"><%= x.stock-x.book %></td>
+                            <td class="2u"><a href="/accept/<%= x._id %>" class="button">Accept</a></td>
+                    </tr>
+                    <% i=i+1; }; %>
+                </tbody>
+            </table>
+        </div>
+        <% }); %>
+    </div>
+</section>
+
+<%- include('partials/footer'); -%>

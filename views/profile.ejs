@@ -1,0 +1,71 @@
+<%- include('partials/header'); -%>
+
+<% if(error && error.length >0){ %>
+    <div class="alert alert-danger container" role="alert">
+        <%= error %>
+    </div>
+<% }%>
+<% if(success && success.length >0){ %>
+    <div class="alert alert-success container" role="alert">
+        <%= success %>
+    </div>
+<% }%>
+
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h1>Profile</h1>
+        </header>
+    </div>
+    <div class="container">
+    <form method="post" action="/profileupdate">
+        <div class="row uniform">
+            <div class="4u 12u$(small)">
+                <label>Name</label>
+                <input type="text" name="name" value="<%= currentUser.name %>" placeholder="Name" />
+            </div>
+            <div class="4u$ 12u$(small)">
+                <label>Roll Number</label>
+                <input type="text" name="rollno" value="<%= currentUser.rollno %>" placeholder="Roll Number" />
+            </div>
+            <div class="4u 12u$(small)">
+                <label>Username</label>
+                <input type="text" name="username" value="<%= currentUser.username %>" placeholder="Username / E-mail" />
+            </div>
+            <div class="4u 12u$(small)">
+            </div>
+            <div class="4u 12u$(small)">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Password" />
+            </div>
+            <div class="container align-center">
+                <ul class="actions">
+                    <li"><input type="submit" value="Update"/></li>
+                    <li"><input type="reset" value="Reset" class="alt"/></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+    <h2 class="align-center">Change Password</h2>
+    <form method="post" action="/updatepassword">
+        <div class="row uniform">
+            <div class="6u 12u$(small)">
+                <label>Old Password</label>
+                <input type="password" name="oldpassword" placeholder="Old Password" />
+            </div>
+            <div class="6u$ 12u$(small)">
+                <label>New Password</label>
+                <input type="password" name="newpassword" placeholder="New Password" />
+            </div>
+            <div class="container align-center">
+                <ul class="actions">
+                    <li"><input type="submit" value="Update" /></li>
+                    <li"><input type="reset" value="Reset" class="alt" /></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+    </div>
+</section>
+
+<%- include('partials/footer'); -%>

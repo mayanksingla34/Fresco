@@ -1,0 +1,61 @@
+<%- include('partials/header'); -%>
+
+<% if(error && error.length >0){ %>
+    <div class="alert alert-danger container" role="alert">
+        <%= error %>
+    </div>
+<% }%>
+
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h1>Orders</h1>
+        </header>
+    </div>
+    <div class="container">
+        <div class="table-wrapper">
+            <table class="alt">
+                <thead>
+                    <%var x; x=founduser.orders; if(x.length == 0){ %>
+                    <% }else { %>
+                    <tr>
+                        <th class="align-center">S.No</th>
+                        <th class="align-center">Order ID</th>
+                        <th class="align-center">Item Name</th>
+                        <th class="align-center">Type</th>
+                        <th class="align-center">Status</th>
+                        <th class="align-center">Order Date</th>
+                        <th class="align-center">Expiry Date</th>
+                        <th class="align-center">Action</th>
+                    </tr>
+                    <% } %>
+                </thead>
+                <tbody>
+                    <%var x; x=founduser.orders; if(x.length == 0){ %>
+                        <tr>
+                            <td class="align-center" colspan="8">No Items</td>
+                        </tr>
+                        <%}; %>
+                    <%for (var i = x.length - 1; i >= 0; i--) { var status = x[i].status;%>
+                    <tr>
+                            <td><%= x.length-i %></td>
+                            <td class="align-center"><%= x[i].id %></td>
+                            <td class="align-center"><%= x[i].name %></td>
+                            <td class="align-center"><%= x[i].type %></td>
+                            <td class="align-center"><%= x[i].status %></td>
+                            <td class="align-center"><%= x[i].date %></td>
+                            <td class="align-center"><%= x[i].expdate %></td>
+                            <% if(status == "Active"){ %>
+                                <td class="align-center"><a href="/cancelorder/<%= x[i]._id %>" class="button">Cancel</a></td>
+                            <% }else { %>
+                                <td class="align-center"><a href="#" class="button disabled"><%= x[i].status %></a></td>
+                            <% } %>
+                    </tr>
+                    <%}; %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer'); -%>

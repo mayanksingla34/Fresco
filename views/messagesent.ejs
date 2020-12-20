@@ -1,0 +1,72 @@
+<%- include('partials/header'); -%>
+<link rel="stylesheet" href="/assets/css/bootstrap.css" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h1>Contact Us</h1>
+            <p>Description</p>
+        </header>
+    </div>
+    <div class="container">
+        <form id="myForm" method="post" action="/contactus">
+            <div class="row uniform">
+                <div class="6u 12u$(xsmall)">
+                    <input type="text" name="name" placeholder="Name" />
+                </div>
+                <div class="6u$ 12u$(xsmall)">
+                    <input type="email" name="email" placeholder="Email" />
+                </div>
+                <div class="12u$">
+                    <textarea name="message" placeholder="Enter your message" rows="6"></textarea>
+                </div>
+                <div class="12u$ align-center">
+                    <ul class="actions">
+                        <li><input id="sendmessage" type="submit" value="Send Message" /></li>
+                        <li><input type="reset" value="Reset" class="alt" /></li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3 class="modal-title" id="exampleModalLabel">Message Sent</h3>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="actions" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</section>
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.scrolly.min.js"></script>
+<script src="/assets/js/skel.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- <script type="text/javascript">
+    $(window).on('load',function(){
+        $('#exampleModal').modal('show');
+    });
+</script> -->
+<!-- <script type="text/javascript">
+    var oldb= document.getElementById("sendmessage");
+    oldb.onclick = function() {$('#exampleModal').modal('show');};
+</script> -->
+<script type="text/javascript">
+    $('#myForm').on('submit', function(e){
+  e.preventDefault();
+  $('#exampleModal').modal('show');
+  $('#exampleModal').on('hidden.bs.modal', function () {
+    $('#myForm').unbind('submit').submit();
+});
+});
+</script>
+
+<%- include('partials/footer'); -%>

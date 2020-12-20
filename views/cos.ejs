@@ -1,0 +1,31 @@
+<%- include('partials/header'); -%>
+
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h1>COS</h1>
+            <p>Outlet Details</p>
+        </header>
+        <div class="row">
+            <% outlets.forEach(function(outlets){ %>
+                <div class="4u 12u$(medium)">
+                    <div class="flex-item box">
+						<div class="image fit">
+							<img src="<%= outlets.image%>" alt="" />
+						</div>
+						<div class="content">
+                            <h3><%= outlets.name%></h3>
+                            <ul class="alt">
+                                <li>Address: <%= outlets.address%></li>
+                                <li>Timing: <%= outlets.timming%></li>
+                                <li>Contact: <%= outlets.contact%></li>
+                            </ul>
+						</div>
+					</div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer'); -%>
