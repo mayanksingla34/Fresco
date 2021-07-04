@@ -17,7 +17,8 @@ var message = require("./models/message");
 const { session } = require("passport");
 
 // mongoose.connect("mongodb://localhost:27017/fresco", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify: false});
-mongoose.connect("mongodb+srv://mayanksingla34:passwd@cluster0.pfh9t.mongodb.net/fresco?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify: false});
+// mongoose.connect("mongodb+srv://mayanksingla34:passwd@cluster0.pfh9t.mongodb.net/fresco?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify: false});
+mongoose.connect("mongodb+srv://frescotiet:passwd@fresco.qxdcj.mongodb.net/fresco?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify: false});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'))
