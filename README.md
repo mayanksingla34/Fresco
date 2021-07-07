@@ -1,4 +1,4 @@
-Visit web app at http://fresco-tiet.herokuapp.com/
+Visit website at http://fresco-tiet.herokuapp.com/
 
 ShortLink: https://bit.ly/fresco-tiet
 
