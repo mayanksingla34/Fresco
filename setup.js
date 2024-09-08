@@ -1,8 +1,14 @@
 var mongoose = require("mongoose");
 
+<<<<<<< HEAD
 // mongoose.connect("mongodb://localhost:27017/fresco", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify: false});
 // mongoose.connect("mongodb+srv://mayanksingla34:passwd@cluster0.pfh9t.mongodb.net/fresco?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify: false});
 mongoose.connect("mongodb+srv://frescotiet:passwd@fresco.qxdcj.mongodb.net/fresco?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify: false});
+=======
+mongoose.connect("mongodb+srv://frescotiet:passwd@fresco.qxdcj.mongodb.net/fresco?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify: false});
+
+
+>>>>>>> f2fad298c7276bbfcfa84a517fede8c0d51e0060
 console.log("mongo connected");
 
 var transport = require("./models/transport");

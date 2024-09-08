@@ -16,9 +16,14 @@ var order = require("./models/order");
 var message = require("./models/message");
 const { session } = require("passport");
 
+<<<<<<< HEAD
 // mongoose.connect("mongodb://localhost:27017/fresco", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify: false});
 // mongoose.connect("mongodb+srv://mayanksingla34:passwd@cluster0.pfh9t.mongodb.net/fresco?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify: false});
 mongoose.connect("mongodb+srv://frescotiet:passwd@fresco.qxdcj.mongodb.net/fresco?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify: false});
+=======
+mongoose.connect("mongodb+srv://frescotiet:passwd@fresco.qxdcj.mongodb.net/fresco?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify: false});
+
+>>>>>>> f2fad298c7276bbfcfa84a517fede8c0d51e0060
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'))
